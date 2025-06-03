@@ -30,7 +30,5 @@ const styles = {
     padding: 10,
     backgroundColor: "blue",
     borderRadius: 5,
-    textAlign: "center",
-    width: 200,
   },
 };

@@ -18,6 +18,8 @@ export default function Detail() {
         <Link href={"/scorecard"} style={styles.button}>Link to scorecard</Link>
         <Link href={"/map"} style={styles.button}>Link to map</Link>
         <Link href={"/sidemenu"} style={styles.button}>Link to side menu</Link>
+        
+        
 
     </View>
   );
@@ -25,13 +27,13 @@ export default function Detail() {
 
 const styles = {
   button: {
-    textDecorationline: "underline",
+    textDecorationLine: "underline",
     color: "white",
     marginTop: 10,
     padding: 10,
     backgroundColor: "blue",
     borderRadius: 5,
-    textAlign: "center",
+    textAlign: "center" as "center",
     width: 200,
   },
 };
