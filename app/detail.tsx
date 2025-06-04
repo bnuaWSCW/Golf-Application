@@ -25,15 +25,15 @@ export default function Detail() {
   );
 }
 
+// styles for the buttons/links
 const styles = {
   button: {
-    textDecorationLine: "underline",
     color: "white",
     marginTop: 10,
     padding: 10,
-    backgroundColor: "blue",
+    backgroundColor: "#697727",
     borderRadius: 5,
-    textAlign: "center" as "center",
-    width: 200,
+    fontFamily: "serif",
+    
   },
 };
