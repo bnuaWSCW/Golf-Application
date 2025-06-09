@@ -1,6 +1,6 @@
 // importing modules to use in the code/app
-import { Link } from "expo-router";
-import { Image, Text, View } from "react-native";
+import { router } from "expo-router";
+import { Image, ImageBackground, Text, TouchableOpacity, View } from "react-native";
 
 // main screen - staring page
 export default function Index() {
@@ -9,38 +9,43 @@ export default function Index() {
     <View
       style={{
         flex: 1,
-        justifyContent: "flex-start",
-        alignItems: "center",
+        justifyContent: "center",
+        flexDirection: 'column',
       }}
     >
 
-      <Text></Text>
+      <ImageBackground source={require('../assets/images/welcome-08Ipbe8GpWw-unsplash.jpg')} 
+      style={{ flex: 1 }}>
 
-      {/* // Link to details */}
-      <Link href={"/detail"} style={styles.button}>Details</Link>
+        <View style={styles.topNav}>
+          <Text style={styles.title}>Kiwi Golf</Text>
+        </View>
 
-      {/* // Details Icon */}
-      <Image
-        source={require('../assets/images/details-icon-symbol-design-illustration-vector.jpg')}
-        style={{ width: 50, height: 50, marginTop: 20, borderRadius: 50}}
-      />
+        <View style={styles.bottomNav}>
 
-      {/* // Link to statistics */}
-      <Link href={"/statistics"} style={styles.button}>Link to statistics</Link>
+        <TouchableOpacity onPress={() => router.push('/history')}>
+          <Image source={require('../assets/images/history-icon.jpg')} style={styles.navIcon} />
+          <Text style={styles.navText}>History</Text>
 
-        {/*// Statistics Icon */}
-      <Image
-        source={require('../assets/images/statistics-icon.jpg')}
-        style={{ width: 50, height: 50, marginTop: 20, borderRadius: 50}}
-      />
-      {/* // Link to History */}
-      <Link href={"/history"} style={styles.button}>Link to history</Link>
+        </TouchableOpacity>
 
-        {/*// Hisotry Icon */}
-      <Image
-        source={require('../assets/images/history-icon.jpg')}
-        style={{ width: 50, height: 50, marginTop: 20, borderRadius: 50}}
-      />
+          <TouchableOpacity onPress={() => router.push('/statistics')}>
+              <Image source={require('../assets/images/statistics-icon.jpg')} style={styles.navIcon} />
+             <Text style={styles.navText}>Statistics</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={() => router.push('/detail')}>
+            <Image source={require('../assets/images/details-icon-symbol-design-illustration-vector.jpg')} style={styles.navIcon} />
+            <Text style={styles.navText}>Details</Text>
+          </TouchableOpacity>
+        </View>
+
+      </ImageBackground>
+
+
+
+
+
 
 
     </View>
@@ -51,15 +56,58 @@ export default function Index() {
 
 
 }
-// styles for the buttons/links
+
 const styles = {
-  button: {
+
+title: {
+  fontSize: 75,
+  fontfamily: "serif",
+  textAlign: 'center',
+  color: 'white',
+  top: 75,
+  fontweight: 'bold',
+},
+
+topNav: {
+  flexDirection: 'row',
+  justifyContent: 'space-around',
+  alignItems: 'center',
+  padding: 10, 
+  bottom: 35,
+  width: '100%',
+},
+
+bottomNav: {
+  flexDirection: 'row',
+  justifyContent: 'space-around',
+  alignItems: 'center',
+  padding: 10, 
+  position: 'absolute',
+  bottom: 35,
+  width: '100%',
+},
+
+navIcon: {
+  width: 60,
+  height: 60,
+  padding: 5,
+  borderRadius: 20,
+  alignItems: 'center',
+  justifyContent: 'center',
+
+},
+
+navText: {
     color: "white",
-    marginTop: 20,
-    padding: 15,
+    marginTop: 10,
+    padding: 10,
     backgroundColor: "#697727",
-    borderRadius: 50,
+    borderRadius: 20,
     fontFamily: "serif",
-    
-  },
+    textAlign: 'center',
+    fontSize: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+},
+
 };
