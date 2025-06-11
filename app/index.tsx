@@ -1,11 +1,11 @@
 // importing modules to use in the code/app
 import { router } from "expo-router";
-import { Image, ImageBackground, Text, TouchableOpacity, View } from "react-native";
+import { Image, ImageBackground, Text, TextInput, TouchableOpacity, View } from "react-native";
 
 // main screen - staring page
 export default function Index() {
   return (
-    // what is viewed on the screen
+    // Everything that is viewed on the screen - with appropriate styles.
     <View
       style={{
         flex: 1,
@@ -14,69 +14,135 @@ export default function Index() {
       }}
     >
 
+      {/*  Background image with appropriate sources. 
+      Flex style is used to take up all space on the screen. */}
+
       <ImageBackground source={require('../assets/images/welcome-08Ipbe8GpWw-unsplash.jpg')} 
       style={{ flex: 1 }}>
 
-        <View style={styles.topNav}>
+
+        {/* Title */}
+
+        <View style={styles.top}>
           <Text style={styles.title}>Kiwi Golf</Text>
         </View>
 
-        <View style={styles.bottomNav}>
 
-        <TouchableOpacity onPress={() => router.push('/history')}>
-          <Image source={require('../assets/images/history-icon.jpg')} style={styles.navIcon} />
-          <Text style={styles.navText}>History</Text>
+        {/* Course, login and if you do not have a login container. Each view is a container - a chunk of code for a block of the screen */}
+      
+        <View style={styles.middleTexts}>
 
-        </TouchableOpacity>
+        {/* Course Text Box */}
+         <TextInput style={styles.inputCourse}
+           placeholder="Enter Course"
+           placeholderTextColor="white"
+          />
 
-          <TouchableOpacity onPress={() => router.push('/statistics')}>
-              <Image source={require('../assets/images/statistics-icon.jpg')} style={styles.navIcon} />
-             <Text style={styles.navText}>Statistics</Text>
+        {/* Login Button */}
+          <TouchableOpacity 
+          style={styles.inputLogin}
+          onPress={() => router.push('/login')}>
+            <Text style={styles.inputLogin}>Login</Text>
           </TouchableOpacity>
 
+        </View>
+
+
+        {/* View container for the bottom buttons */}
+        <View style={styles.bottomNav}>
+
+        {/* History button and icon */}
+         <TouchableOpacity onPress={() => router.push('/history')}>
+            <Image source={require('../assets/images/history-icon.jpg')} style={styles.navIcon} />
+            <Text style={styles.navText}>History</Text>
+         </TouchableOpacity>
+
+        {/* Statistics button and icon */}
+          <TouchableOpacity onPress={() => router.push('/statistics')}>
+              <Image source={require('../assets/images/statistics-icon.jpg')} style={styles.navIcon} />
+             <Text style={styles.navStats}>Statistics</Text>
+          </TouchableOpacity>
+
+        {/* Details button and icon */}
           <TouchableOpacity onPress={() => router.push('/detail')}>
             <Image source={require('../assets/images/details-icon-symbol-design-illustration-vector.jpg')} style={styles.navIcon} />
             <Text style={styles.navText}>Details</Text>
           </TouchableOpacity>
+
         </View>
 
       </ImageBackground>
 
-
-
-
-
-
-
     </View>
-
-
 
   );
 
-
 }
+
+
+// ----------------- \\
+// ---- STYLES ----- \\
+// ----------------- \\
+
 
 const styles = {
 
+// For the Kiwi Golf Title
 title: {
   fontSize: 75,
-  fontfamily: "serif",
+  fontfamily: "Monospace",
   textAlign: 'center',
   color: 'white',
-  top: 75,
+  top: 100,
   fontweight: 'bold',
+  letterSpacing: 4,
+
 },
 
-topNav: {
+// Course textInput
+inputCourse: {
+  fontSize: 20,
+  color: 'white',
+  backgroundColor: '#697727',
+  padding: 20,
+  borderRadius: 50,
+  marginVertical: 20,
+  width: '80%',
+  textAlign: 'center',
+},
+
+// Login Button
+inputLogin: {
+  backgroundColor: 'white',
+  fontSize: 20,
+  padding: 11,
+  borderRadius: 50,
+  color: '#697727',
+  fontWeight: 'bold',
+  textAlign: 'center',
+  width: '80%',
+},
+
+// Top container (Title)
+top: {
   flexDirection: 'row',
   justifyContent: 'space-around',
   alignItems: 'center',
   padding: 10, 
   bottom: 35,
   width: '100%',
+  fontfamily: 'sans-serif',
 },
 
+// Middle Container (For Course, Login)
+middleTexts: {
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
+  height: '60%',
+},
+
+// Bottom Container (For Details, Statistics, History)
 bottomNav: {
   flexDirection: 'row',
   justifyContent: 'space-around',
@@ -87,6 +153,7 @@ bottomNav: {
   width: '100%',
 },
 
+// Styles for Icon images on the bottom section
 navIcon: {
   width: 60,
   height: 60,
@@ -97,17 +164,34 @@ navIcon: {
 
 },
 
+// Styles for text on the bottom section
 navText: {
     color: "white",
     marginTop: 10,
     padding: 10,
     backgroundColor: "#697727",
     borderRadius: 20,
-    fontFamily: "serif",
+    fontFamily: "sans-serif",
     textAlign: 'center',
     fontSize: 20,
     alignItems: 'center',
     justifyContent: 'center',
+    marginLeft: -11
 },
+
+// Styles for specifically Statistics
+navStats: {
+    color: "white",
+    marginTop: 10,
+    padding: 10,
+    backgroundColor: "#697727",
+    borderRadius: 20,
+    fontFamily: "sans-serif",
+    textAlign: 'center',
+    fontSize: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginLeft: -20
+}
 
 };
