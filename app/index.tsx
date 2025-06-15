@@ -28,21 +28,34 @@ export default function Index() {
         </View>
 
 
-        {/* Course, login and if you do not have a login container. Each view is a container - a chunk of code for a block of the screen */}
+        {/* Course, login and "if you do not have a login" container. Each view is a container */}
       
         <View style={styles.middleTexts}>
 
         {/* Course Text Box */}
          <TextInput style={styles.inputCourse}
            placeholder="Enter Course"
-           placeholderTextColor="white"
+           placeholderTextColor='white'
           />
 
         {/* Login Button */}
           <TouchableOpacity 
           style={styles.inputLogin}
           onPress={() => router.push('/login')}>
-            <Text style={styles.inputLogin}>Login</Text>
+           <Text style={{ color: '#697727', fontWeight: 'bold', fontSize: 30, 
+            letterSpacing: 3, textAlign: 'center' }}>
+            Login
+           </Text>
+          </TouchableOpacity>
+
+        {/* Sign In Button */}
+          <TouchableOpacity 
+          style={styles.inputSignIn}
+          onPress={() => router.push('/signin')}>
+           <Text style={{ color: 'white', fontWeight: 'bold', 
+            textDecorationLine: 'underline',}}>
+            Don't have an account?
+           </Text>
           </TouchableOpacity>
 
         </View>
@@ -101,25 +114,28 @@ title: {
 
 // Course textInput
 inputCourse: {
-  fontSize: 20,
-  color: 'white',
+  fontSize: 30,
   backgroundColor: '#697727',
-  padding: 20,
   borderRadius: 50,
-  marginVertical: 20,
+  marginVertical: 25,
   width: '80%',
   textAlign: 'center',
+  fontWeight: "bold",
+  color: 'white',
 },
 
 // Login Button
 inputLogin: {
   backgroundColor: 'white',
-  fontSize: 20,
-  padding: 11,
+  padding: 8,
   borderRadius: 50,
-  color: '#697727',
-  fontWeight: 'bold',
-  textAlign: 'center',
+  width: '80%',
+},
+
+// Sign In Button
+inputSignIn: {
+  padding: 8,
+  borderRadius: 50,
   width: '80%',
 },
 
@@ -139,7 +155,7 @@ middleTexts: {
   flexDirection: 'column',
   justifyContent: 'center',
   alignItems: 'center',
-  height: '60%',
+  height: '70%',
 },
 
 // Bottom Container (For Details, Statistics, History)
