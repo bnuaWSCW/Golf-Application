@@ -42,8 +42,8 @@ export default function Index() {
           <TouchableOpacity 
           style={styles.inputLogin}
           onPress={() => router.push('/login')}>
-           <Text style={{ color: '#697727', fontWeight: 'bold', fontSize: 30, 
-            letterSpacing: 3, textAlign: 'center' }}>
+           <Text style={{ color: '#4c4c1c', fontWeight: 'bold', fontSize: 30, 
+            letterSpacing: 3, textAlign: 'center', }}>
             Login
            </Text>
           </TouchableOpacity>
@@ -103,7 +103,7 @@ const styles = {
 // For the Kiwi Golf Title
 title: {
   fontSize: 75,
-  fontfamily: "Monospace",
+  fontfamily: "Roboto",
   textAlign: 'center',
   color: 'white',
   top: 100,
@@ -115,7 +115,7 @@ title: {
 // Course textInput
 inputCourse: {
   fontSize: 30,
-  backgroundColor: '#697727',
+  backgroundColor: '#4c4c1c',
   borderRadius: 50,
   marginVertical: 25,
   width: '80%',
@@ -147,7 +147,6 @@ top: {
   padding: 10, 
   bottom: 35,
   width: '100%',
-  fontfamily: 'sans-serif',
 },
 
 // Middle Container (For Course, Login)
