@@ -20,7 +20,7 @@ export default function History() {
         <Link href={"/sidemenu"} style={styles.button}>Link to side menu</Link>
         
         
-
+      
     </View>
   );
 }

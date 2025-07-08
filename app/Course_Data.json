@@ -1,0 +1,233 @@
+[
+  { 
+    "name": "Akarana Golf Club",
+    "par": [5, 4, 3, 4, 3, 4, 4, 3, 4, 5, 3, 5, 4, 4, 4, 3, 4, 4]
+  },
+
+  { 
+    "name": "Blue at North Shore Golf Club",
+    "par": [5, 4, 4, 4, 3, 4, 3, 4, 5]
+  },
+
+  { 
+    "name": "Aviation Country Club",
+    "par": [5, 4, 4, 4, 3, 4, 4, 5, 3, 4, 5, 3, 4, 4, 4, 4, 4, 4]
+  },
+
+  { 
+    "name": "Awhitu Country Club",
+    "par": [3, 4, 3, 4, 5, 4, 4, 4, 4, 3, 4, 3, 4, 5, 4, 4, 4, 4]
+  },
+
+  { 
+    "name": "Chamberlain Park Golf Club",
+    "par": [4, 4, 4, 3, 4, 4, 4, 4, 3, 4, 3, 5, 5, 3, 4, 4, 3, 4]
+  },
+
+  { 
+    "name": "Clarks Beach Golf Club",
+    "par": [5, 4, 3, 5, 3, 4, 4, 4, 3, 4, 4, 3, 4, 4, 4, 3, 5, 5]
+  },
+
+  { 
+    "name": "Formosa Golf Club",
+    "par": [4, 3, 5, 4, 4, 4, 3, 4, 5, 4, 3, 5, 4, 4, 3, 5, 4, 4]
+  },
+
+  { 
+    "name": "Gold at North Shore Golf Club",
+    "par": [4, 4, 4, 3, 5, 4, 5, 4, 3]
+  },
+
+  { 
+    "name": "Golf Warehouse & Driving Range - Ellerslie Course",
+    "par": [3, 3, 3, 3, 3, 3, 3, 3, 3]
+  },
+
+  { 
+    "name": "Gulf Harbour Country Club",
+    "par": [4, 5, 3, 4, 4, 5, 4, 3, 4, 4, 5, 4, 3, 4, 3, 4, 5, 4]
+  },
+
+  { 
+    "name": "Helensville Golf Club",
+    "par": [5, 3, 4, 4, 4, 3, 4, 5, 3, 4, 4, 4, 3, 4, 5, 5, 3, 4]
+  },
+
+  { 
+    "name": "Huapai Golf Club",
+    "par": [4, 3, 5, 3, 4, 4, 3, 4, 4, 3, 4, 4, 4, 4, 4, 3, 4, 5]
+  },
+
+  { 
+    "name": "Howick Golf Club",
+    "par": [4, 3, 5, 3, 3, 4, 4, 4, 3, 4, 4, 4, 4, 4, 3, 4, 4, 5]
+  },
+
+  { 
+    "name": "Lakes Golf Club" ,
+    "par": [3, 4, 3, 3, 4, 3, 3, 3, 3, 3, 4, 3, 3, 4, 3, 3, 3, 3]
+  },
+
+  { 
+    "name": "Maungakiekie Golf Club",
+    "par": [4, 4, 3, 4, 4, 4, 4, 4, 4, 4, 3, 5, 3, 4, 3, 4, 4, 5]
+  },
+
+  { 
+    "name": "Muriwai Golf Club",
+    "par": [4, 5, 3, 4, 4, 5, 4, 3, 4, 4, 3, 5, 4, 5, 4, 4, 3, 4]
+  },
+
+  { 
+    "name": "Maramarua Golf Club",
+    "par": [4, 3, 5, 4, 5, 3, 4, 4, 4, 5, 3, 4, 4, 3, 4, 5, 4, 4]
+  },
+
+  { 
+    "name": "Maxwell's Golf Retreat",
+    "par": [3, 3, 3, 3, 3, 3, 4, 3, 3]
+  },
+
+  { 
+    "name": "Northridge Country Lodge",
+    "par": [4, 3, 4, 4, 3, 5, 4, 4, 3]
+  },
+
+  { 
+    "name": "Omaha Beach Golf Club",
+    "par": [4, 3, 4, 4, 4, 4, 5, 3, 4, 4, 4, 3, 5, 4, 3, 5, 3, 4]
+  },
+
+  { 
+    "name": "Pakuranga Golf Club",
+    "par": [5, 4, 4, 4, 4, 3, 4, 3, 4, 4, 3, 4, 5, 5, 3, 5, 4, 4]
+  },
+
+  { 
+    "name": "Onewhero Golf Club",
+    "par": [4, 4, 5, 4, 4, 4, 3, 4, 3, 4, 4, 5, 3, 3, 4, 4, 5, 5]
+  },
+
+  { 
+    "name": "Pukekohe Golf Club",
+    "par": [5, 4, 4, 3, 5, 3, 4, 4, 4, 4, 3, 4, 4, 3, 4, 3, 5, 5]
+  },
+
+  { 
+    "name": "Pupuke Golf Club",
+    "par": [4, 3, 4, 4, 5, 3, 4, 4, 3, 5, 5, 4, 3, 4, 4, 4, 3, 4]
+  },
+
+  { 
+    "name": "Redwood Park Golf Club",
+    "par": [4, 3, 5, 4, 3, 5, 4, 3, 5, 3, 4, 4, 3, 4, 4, 3, 4, 4]
+  },
+
+  { 
+    "name": "Red at North Shore Golf Club",
+    "par": [5, 5, 4, 3, 4, 4, 3, 4, 4]
+  },
+
+  { 
+    "name": "Remuera Golf Club",
+    "par": [4, 3, 4, 4, 4, 4, 3, 3, 4, 4, 3, 4, 5, 4, 4, 5, 3, 5]
+  },
+  
+  { 
+    "name": "RNZAF Golf Club - Whenuapai",
+    "par": [4, 4, 3, 4, 4, 3, 4, 4, 5, 4, 5, 3, 5, 4, 3, 4, 4, 4]
+  },
+
+  { 
+    "name": "Royal Auckland Golf Club",
+    "par": [4, 4, 4, 5, 4, 4, 3, 4, 5, 3, 4, 4, 3, 4, 4, 4, 5, 4]
+  },
+
+  { 
+    "name": "Royal NZ Navy Golf Society",
+    "par": [4, 4, 4, 3, 4, 3, 4, 4, 4, 3, 4, 3, 5, 4, 4, 5, 4, 4]
+  },
+
+  { 
+    "name": "South Head Golf Club",
+    "par": [4, 3, 4, 3, 5, 5, 4, 5, 4, 3, 4, 4, 4, 4, 4, 4, 5, 4]
+  },
+
+  { 
+    "name": "Takapuna Golf Club",
+    "par": [4, 3, 4, 3, 4, 4, 5, 3, 4, 3, 4, 5, 4, 3, 5, 4, 4, 4]
+  },
+
+  { 
+    "name": "Te Arai Links Golf Club - North Course",
+    "par": [4, 3, 4, 4, 4, 4, 3, 4, 5, 4, 5, 3, 4, 5, 3, 4, 3, 5]
+  },
+
+  { 
+    "name": "Te Arai Links Golf Club - South Course",
+    "par": [5, 4, 4, 4, 3, 4, 5, 3, 4, 4, 4, 3, 5, 4, 4, 4, 3, 5]
+  },
+
+  { 
+    "name": "The Grange Golf Club",
+    "par": [4, 4, 4, 4, 3, 4, 4, 3, 4, 4, 3, 5, 5, 4, 3, 4, 4, 4]
+  },
+
+  { 
+    "name": "Titirangi Golf Club Incorporated" ,
+    "par": [4, 4, 4, 3, 5, 4, 3, 4, 4, 4, 3, 4, 5, 3, 4, 4, 5, 4]
+  },
+
+  { 
+    "name": "Waiheke Island Country Club",
+    "par": [5, 3, 4, 4, 4, 4, 4, 3, 5, 5, 4, 4, 3, 4, 4, 4, 3, 5]
+  },
+
+  { 
+    "name": "Wainui Golf Club",
+    "par": [4, 4, 3, 5, 4, 5, 4, 3, 4, 4, 3, 4, 5, 5, 4, 4, 3, 4]
+  },
+
+  { 
+    "name": "Wainui Golf Club - Orchard 9 Course",
+    "par": [3, 3, 3, 3, 3, 3, 3, 3, 3]
+  },
+
+  { 
+    "name": "Waiuku Golf Club",
+    "par": [5, 4, 5, 3, 4, 4, 3, 4, 4, 3, 5, 3, 4, 4, 5, 3, 4, 4]
+  },
+
+  { 
+    "name": "Wattle Downs Golf Club",
+    "par": [5, 3, 4, 4, 3, 3, 4, 5, 4, 5, 3, 4, 4, 3, 3, 4, 5, 4]
+  },
+
+  { 
+    "name": "Whitford Park Golf Club",
+    "par": [4, 4, 3, 4, 4, 5, 4, 4, 3, 4, 3, 4, 5, 4, 4, 4, 3, 4]
+  },
+
+  { 
+    "name": "Windross Farm Golf Course",
+    "par": [4, 5, 3, 4, 5, 4, 3, 4, 4, 4, 4, 4, 3, 5, 4, 4, 3, 5]
+  },
+
+  { 
+    "name": "Waitemata Golf Course",
+    "par": [4, 4, 4, 3, 4, 3, 4, 4, 4, 3, 4, 3, 5, 4, 4, 5, 4, 4]
+  },
+
+  { 
+    "name": "Warkworth Golf Course",
+    "par": [5, 4, 4, 3, 4, 4, 3, 5, 3, 5, 5, 3, 5, 4, 4, 3, 4, 4]
+  },
+
+  { 
+    "name": "Whangaparaoa Farm Golf Course",
+    "par": [4, 4, 3, 4, 3, 4, 5, 4, 4, 4, 3, 5, 5, 3, 4, 4, 4, 4]
+  }
+
+]
+
