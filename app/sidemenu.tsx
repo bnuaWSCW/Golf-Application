@@ -9,7 +9,7 @@ export default function SideMenu() {
         alignItems: "center",
       }}
     >
-      <Text>Edit app/index.tsx to edit this screen.</Text>
+      <Text>This is the side menu</Text>
     </View>
   );
 }

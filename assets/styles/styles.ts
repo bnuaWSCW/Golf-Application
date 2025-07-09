@@ -47,7 +47,14 @@ export const styles = StyleSheet.create({
     width: '100%',
   },
 
-  // Middle Container (For Course, Login)
+  topMenu: {
+    flexDirection: 'row',
+    width: '100%',
+    padding: 10,
+  },
+
+
+  // Middle Container
   middleTexts: {
     flexDirection: 'column',
     justifyContent: 'center',
@@ -105,6 +112,17 @@ export const styles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center',
       marginLeft: -20
+  },
+
+  scorecardTitle: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    textAlign: 'center',
+    color: 'white',
+    padding: 10,
+    fontSize: 20,
+    borderRadius: 20,
+    backgroundColor: "#697727",
   }
 
   });
