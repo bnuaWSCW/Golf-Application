@@ -123,6 +123,53 @@ export const styles = StyleSheet.create({
     fontSize: 20,
     borderRadius: 20,
     backgroundColor: "#697727",
-  }
+  },
+
+  // Table Styles
+
+  datatable: {
+    height: 70,
+    backgroundColor: 'white',
+  },
+
+  rowText: {
+    color: "#697727",
+    textAlign: "center",
+    fontSize: 35,
+    fontWeight: "bold"
+  },
+
+  tableHeader: {
+    height: 70,
+    backgroundColor: "#697727"
+  },
+
+  headerText: {
+    color: "white",
+    textAlign: "center",
+    fontSize: 25,
+    fontWeight: "bold"
+  },
+
+  tableBorder: {
+    borderColor: "#464a1e",
+    borderWidth: 5,
+  },
+
+  scoreText: {
+      color: "#464a1e",
+      padding: 10,
+      backgroundColor: "white",
+      borderRadius: 20,
+      textAlign: 'center',
+      fontSize: 25,
+      alignItems: 'center',
+      justifyContent: 'center',
+      fontWeight: 'bold',
+      borderColor: "#464a1e",
+      borderWidth: 5
+  },
+
+  
 
   });
