@@ -43,7 +43,6 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center', 
-    textAlign: 'center',
     width: '100%',
   },
 
@@ -121,6 +120,7 @@ export const styles = StyleSheet.create({
     color: 'white',
     padding: 10,
     fontSize: 20,
+    fontWeight: 'bold',
     borderRadius: 20,
     backgroundColor: "#697727",
   },
@@ -157,7 +157,7 @@ export const styles = StyleSheet.create({
   },
 
   scoreText: {
-      color: "#464a1e",
+      color: "#697727",
       padding: 10,
       backgroundColor: "white",
       borderRadius: 20,
@@ -166,9 +166,42 @@ export const styles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center',
       fontWeight: 'bold',
-      borderColor: "#464a1e",
-      borderWidth: 5
+      borderWidth: 4,
+      borderColor: "#464a1e"
   },
+
+  sideMenu: {
+    position:'absolute', 
+    top: 120, 
+    left: 65, 
+    zIndex: 10,
+    padding: 35,
+    backgroundColor: "#697727",
+    borderRadius: 50,
+    borderColor: 'white',
+    borderWidth: 5
+  },
+
+  heading: {
+    color: 'white',
+    fontSize: 50,
+    textAlign: 'center',
+    padding: 5,
+    top: -10,
+    fontWeight: 'bold'
+  },
+
+  endRound: {
+      color: "white",
+      padding: 10,
+      backgroundColor: "#697727",
+      borderRadius: 20,
+      textAlign: 'center',
+      fontSize: 25,
+      fontWeight: 'bold',
+      borderColor: "white",
+      borderWidth: 4
+  }
 
   
 

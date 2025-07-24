@@ -10,7 +10,7 @@ export default function Map() {
         alignItems: "center",
       }}
     >
-      <Text>This is the history screen</Text>
+      <Text>This is the map screen</Text>
       <Link href="/" style={{ color: "blue", marginTop: 20 }}>
         Go back to Home
       </Link>
