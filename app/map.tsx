@@ -1,11 +1,73 @@
-import { forecast } from '@/assets/api.js';
 import { styles } from "@/assets/styles/styles";
 import { router, useLocalSearchParams } from "expo-router";
 import { Menu } from 'lucide-react-native';
+import { fetchWeatherApi } from 'openmeteo';
 import React, { useState } from 'react';
 import { ImageBackground, Text, TouchableOpacity, TouchableWithoutFeedback, View } from "react-native";
 
+
+
 export default function Map() {
+  const params = {
+    "latitude": -36.8485,
+    "longitude": 174.7635,
+    "hourly": ["temperature_2m", "precipitation", "precipitation_probability", "wind_speed_180m"],
+  };
+  const url = "https://api.open-meteo.com/v1/forecast";
+  const [weatherData, setWeatherData] = useState<any>(null);
+
+  React.useEffect(() => {
+    const fetchWeather = async () => {
+      const responses = await fetchWeatherApi(url, params);
+
+      // Process first location. Add a for-loop for multiple locations or weather models
+      const response = responses[0];
+
+      // Attributes for timezone and location
+      const latitude = response.latitude();
+      const longitude = response.longitude();
+      const elevation = response.elevation();
+      const utcOffsetSeconds = response.utcOffsetSeconds();
+
+      console.log(
+        `\nCoordinates: ${latitude}°N ${longitude}°E`,
+        `\nElevation: ${elevation}m asl`,
+        `\nTimezone difference to GMT+0: ${utcOffsetSeconds}s`,
+      );
+
+      const hourly = response.hourly()!;
+
+      // Note: The order of weather variables in the URL query and the indices below need to match!
+      const weatherDataObj = {
+        hourly: {
+          time: [...Array((Number(hourly.timeEnd()) - Number(hourly.time())) / hourly.interval())].map(
+            (_, i) => new Date((Number(hourly.time()) + i * hourly.interval() + utcOffsetSeconds) * 1000)
+          ),
+          temperature_2m: hourly.variables(0)!.valuesArray(),
+          precipitation: hourly.variables(1)!.valuesArray(),
+          precipitation_probability: hourly.variables(2)!.valuesArray(),
+	      	wind_speed_180m: hourly.variables(3)!.valuesArray(),
+        },
+      };
+
+      // 'weatherData' now contains a simple structure with arrays with datetime and weather data
+      console.log("\nHourly data", weatherDataObj.hourly);
+      setWeatherData(weatherDataObj);
+    };
+
+    fetchWeather();
+  }, []);
+
+  // Removed invalid destructuring of 'weather' from Math.round result
+  // Example: Return a number from a function
+  function getFirstTemperature(): number | undefined {
+    if (weatherData && weatherData.hourly.temperature_2m.length > 0) {
+      return Math.round(weatherData.hourly.temperature_2m[0]);
+    }
+    return undefined;
+  }
+
+  
 
   const { course } = useLocalSearchParams();
 
@@ -86,9 +148,12 @@ export default function Map() {
           </View>
 
           <View style={styles.middleTexts}>
-              <Text>{forecast("weather.")}</Text>
+              <Text style={styles.navText}>
+                {weatherData
+                  ? `Next hour: ${getFirstTemperature()}°C, Precip: ${weatherData.hourly.precipitation[0]}mm, ${weatherData.hourly.precipitation_probability[0]}. ${weatherData.hourly.wind_speed_180m[0]}`
+                  : "Loading weather..."}
+              </Text>
           </View>
-
 
           <View style={styles.bottomNav}>
             <TouchableOpacity onPress={() => router.push({pathname: '/scorecard', params: { course: course}})} 
