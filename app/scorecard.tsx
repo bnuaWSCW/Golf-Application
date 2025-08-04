@@ -148,7 +148,8 @@ export default function Scorecard() {
 
           <View style={styles.bottomNav}>
 
-            <TouchableOpacity onPress={() => router.push('/map')} style={{width: '85%'}}>
+            <TouchableOpacity onPress={() => router.push({pathname: '/map', params: { course: course}})} 
+            style={{width: '85%'}}>
               <Text style={styles.scoreText}>GO TO MAP</Text>
             </TouchableOpacity>
 
