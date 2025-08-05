@@ -3,7 +3,7 @@ import { router, useLocalSearchParams } from "expo-router";
 import { Menu } from 'lucide-react-native';
 import { fetchWeatherApi } from 'openmeteo';
 import React, { useState } from 'react';
-import { ImageBackground, Text, TouchableOpacity, TouchableWithoutFeedback, View } from "react-native";
+import { Image, ImageBackground, Text, TouchableOpacity, TouchableWithoutFeedback, View } from "react-native";
 
 
 
@@ -46,26 +46,38 @@ export default function Map() {
           temperature_2m: hourly.variables(0)!.valuesArray(),
           precipitation: hourly.variables(1)!.valuesArray(),
           precipitation_probability: hourly.variables(2)!.valuesArray(),
-	      	wind_speed_180m: hourly.variables(3)!.valuesArray(),
         },
       };
 
-      // 'weatherData' now contains a simple structure with arrays with datetime and weather data
-      console.log("\nHourly data", weatherDataObj.hourly);
       setWeatherData(weatherDataObj);
     };
 
     fetchWeather();
   }, []);
 
-  // Removed invalid destructuring of 'weather' from Math.round result
-  // Example: Return a number from a function
   function getFirstTemperature(): number | undefined {
     if (weatherData && weatherData.hourly.temperature_2m.length > 0) {
       return Math.round(weatherData.hourly.temperature_2m[0]);
     }
     return undefined;
   }
+
+  function getPrecipitation(): number | undefined {
+    if (weatherData && weatherData.hourly.precipitation.length > 0) {
+      return Math.round(weatherData.hourly.precipitation[0]);
+    }
+    return undefined;
+  }
+
+    function getPrecipitationChance(): number | undefined {
+    if (weatherData && weatherData.hourly.precipitation_probability.length > 0) {
+      return Math.round(weatherData.hourly.precipitation_probability[0]);
+    }
+    return undefined;
+  }
+
+
+
 
   
 
@@ -147,12 +159,26 @@ export default function Map() {
               <Text style={[styles.scorecardTitle, {position: 'absolute', left: 70, top: 10}]}>{course}</Text>
           </View>
 
-          <View style={styles.middleTexts}>
-              <Text style={styles.navText}>
-                {weatherData
-                  ? `Next hour: ${getFirstTemperature()}°C, Precip: ${weatherData.hourly.precipitation[0]}mm, ${weatherData.hourly.precipitation_probability[0]}. ${weatherData.hourly.wind_speed_180m[0]}`
-                  : "Loading weather..."}
+          <View style={[styles.middleTexts, {justifyContent: 'flex-start', marginLeft: -175}]} >
+
+              <Text style={[styles.navText, {position: 'absolute', zIndex: 10}]}>
+                  {weatherData ? `Chance of rain: ${getPrecipitationChance()}%`: "Loading Weather..."}
               </Text>
+
+              <Text style={[styles.navText, {marginLeft: -80,  position: 'absolute', marginTop: 65, zIndex: 10}]}>
+                  {weatherData ? `Temp: ${getFirstTemperature()}°C`: "Loading Weather..."}
+              </Text>
+
+              <Text style={[styles.navText, {marginLeft: -82,  position: 'absolute', marginTop: 120, zIndex: 10}]}>
+                  {weatherData ? `Rain: ${getPrecipitation()}mm`: "Loading Weather..."}
+              </Text>
+
+              <Image 
+              style={styles.imagePlaceholder}
+              source={require('../assets/images/hole17.jpg')} />
+
+
+
           </View>
 
           <View style={styles.bottomNav}>

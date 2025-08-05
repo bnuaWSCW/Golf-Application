@@ -113,12 +113,12 @@ export default function Index() {
             placeholder="Enter Course"
             inputStyles={{
               color:'white',
-              fontSize: 20,
+              fontSize: 25,
               letterSpacing: 3,
               fontWeight: 'bold',
               textAlign: 'center',
             }}
-            searchPlaceholder="Search"
+            searchPlaceholder=""
             maxHeight={150}
             
           />

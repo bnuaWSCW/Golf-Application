@@ -201,8 +201,17 @@ export const styles = StyleSheet.create({
       fontWeight: 'bold',
       borderColor: "white",
       borderWidth: 4
+  },
+
+  imagePlaceholder: {
+    resizeMode: 'stretch',
+    position: 'absolute',
+    zIndex: 0,
+    width: '60%',
+    height: '110%',
+    marginTop: 10,
+    marginLeft: 180,
+    borderColor: "#464a1e",
+    borderWidth: 10
   }
-
-  
-
   });
