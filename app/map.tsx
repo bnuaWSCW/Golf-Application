@@ -8,19 +8,23 @@ import { Image, ImageBackground, Text, TouchableOpacity, TouchableWithoutFeedbac
 
 
 export default function Map() {
+
+  // Location of what weather data to call
   const params = {
     "latitude": -36.8485,
     "longitude": 174.7635,
     "hourly": ["temperature_2m", "precipitation", "precipitation_probability", "wind_speed_180m"],
   };
+  // Where to get the weather
   const url = "https://api.open-meteo.com/v1/forecast";
+
+  // Stores and updates the weather info for the app to use
   const [weatherData, setWeatherData] = useState<any>(null);
 
   React.useEffect(() => {
     const fetchWeather = async () => {
       const responses = await fetchWeatherApi(url, params);
 
-      // Process first location. Add a for-loop for multiple locations or weather models
       const response = responses[0];
 
       // Attributes for timezone and location
@@ -37,7 +41,6 @@ export default function Map() {
 
       const hourly = response.hourly()!;
 
-      // Note: The order of weather variables in the URL query and the indices below need to match!
       const weatherDataObj = {
         hourly: {
           time: [...Array((Number(hourly.timeEnd()) - Number(hourly.time())) / hourly.interval())].map(

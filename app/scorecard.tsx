@@ -67,11 +67,6 @@ export default function Scorecard() {
     });
   };
 
-
-  const findPar = courseInfo.find(courseInfo => courseInfo.name === course)
-
-  const tableTitle = ['HOLE', 'PAR', 'SCORE'];
-
   const tableData = Array.from({ length: 18}, (_, i) => [
     `${1 + i}`, 
     findPar?.par[i], 
@@ -86,6 +81,10 @@ export default function Scorecard() {
   const total = score.reduce((sum, current) => sum + current, 0);
 
   const totalscore = ['TOTAL', total]
+
+ const findPar = courseInfo.find(courseInfo => courseInfo.name === course)
+
+  const tableTitle = ['HOLE', 'PAR', 'SCORE'];
 
 
   return (
