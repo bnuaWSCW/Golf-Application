@@ -8,7 +8,6 @@ export default function RootLayout() {
       <Stack.Screen name="map" options={{ headerShown: false }} />
       <Stack.Screen name="scorecard" options={{ headerShown: false }} />
       <Stack.Screen name="statistics" options={{ headerShown: false }} />
-      <Stack.Screen name="sidemenu" options={{ headerShown: false }} />
       <Stack.Screen name="history" options ={{headerShown: false}} />
       <Stack.Screen name="login" options ={{headerShown: false}} />
       <Stack.Screen name="signin" options ={{headerShown: false}} />
