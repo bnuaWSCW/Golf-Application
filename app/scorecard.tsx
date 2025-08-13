@@ -8,14 +8,18 @@ import courseInfo from './Course_Data.json';
 
 export default function Scorecard() {
 
+  // Course varible transferred from index.tsx
   const { course } = useLocalSearchParams();
 
+  // Side menu useState function. False = hidden. True = exposed.
   const [menuVisible, setmenuVisible] = useState(false);
 
+  // Hides the side menu when clicking anywhere else other than the side menu
   const offClick = () => {
     setmenuVisible(false);
   };
 
+  // Side Menu Component/function
    const SideMenu = () => {
     return (
       <View style={styles.sideMenu}>
@@ -53,6 +57,7 @@ export default function Scorecard() {
     )
    }
 
+  // useState function for the score - makes 18 zero's and puts them in a list.
   const [score, setScore] = useState(Array(18).fill(0));
 
   const increaseScore = (index: number) => {
@@ -66,6 +71,9 @@ export default function Scorecard() {
       return newScore;
     });
   };
+
+  
+ const findPar = courseInfo.find(courseInfo => courseInfo.name === course)
 
   const tableData = Array.from({ length: 18}, (_, i) => [
     `${1 + i}`, 
@@ -81,8 +89,6 @@ export default function Scorecard() {
   const total = score.reduce((sum, current) => sum + current, 0);
 
   const totalscore = ['TOTAL', total]
-
- const findPar = courseInfo.find(courseInfo => courseInfo.name === course)
 
   const tableTitle = ['HOLE', 'PAR', 'SCORE'];
 

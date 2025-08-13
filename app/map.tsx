@@ -164,15 +164,15 @@ export default function Map() {
 
           <View style={[styles.middleTexts, {justifyContent: 'flex-start', marginLeft: -175}]} >
 
-              <Text style={[styles.navText, {position: 'absolute', zIndex: 10}]}>
+              <Text style={[styles.navText, {position: 'absolute', zIndex: 9}]}>
                   {weatherData ? `Chance of rain: ${getPrecipitationChance()}%`: "Loading Weather..."}
               </Text>
 
-              <Text style={[styles.navText, {marginLeft: -80,  position: 'absolute', marginTop: 65, zIndex: 10}]}>
+              <Text style={[styles.navText, {marginLeft: -80,  position: 'absolute', marginTop: 65, zIndex: 9}]}>
                   {weatherData ? `Temp: ${getFirstTemperature()}°C`: "Loading Weather..."}
               </Text>
 
-              <Text style={[styles.navText, {marginLeft: -82,  position: 'absolute', marginTop: 120, zIndex: 10}]}>
+              <Text style={[styles.navText, {marginLeft: -82,  position: 'absolute', marginTop: 120, zIndex: 9}]}>
                   {weatherData ? `Rain: ${getPrecipitation()}mm`: "Loading Weather..."}
               </Text>
 
