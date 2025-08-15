@@ -17,7 +17,6 @@ export default function History() {
        <Link href={"/statistics"} style={styles.button}>Link to statistics</Link>
         <Link href={"/scorecard"} style={styles.button}>Link to scorecard</Link>
         <Link href={"/map"} style={styles.button}>Link to map</Link>
-        <Link href={"/sidemenu"} style={styles.button}>Link to side menu</Link>
         
         
 

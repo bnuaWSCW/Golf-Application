@@ -93,8 +93,6 @@ export const styles = StyleSheet.create({
       fontFamily: "sans-serif",
       textAlign: 'center',
       fontSize: 20,
-      alignItems: 'center',
-      justifyContent: 'center',
       marginLeft: -11
   },
 
@@ -108,14 +106,10 @@ export const styles = StyleSheet.create({
       fontFamily: "sans-serif",
       textAlign: 'center',
       fontSize: 20,
-      alignItems: 'center',
-      justifyContent: 'center',
       marginLeft: -20
   },
 
   scorecardTitle: {
-    alignItems: 'center',
-    justifyContent: 'center',
     textAlign: 'center',
     color: 'white',
     padding: 10,
@@ -163,8 +157,6 @@ export const styles = StyleSheet.create({
       borderRadius: 20,
       textAlign: 'center',
       fontSize: 25,
-      alignItems: 'center',
-      justifyContent: 'center',
       fontWeight: 'bold',
       borderWidth: 4,
       borderColor: "#464a1e"
@@ -213,5 +205,23 @@ export const styles = StyleSheet.create({
     marginLeft: 180,
     borderColor: "#464a1e",
     borderWidth: 10
+  },
+
+  detailtext: {
+      color: "#697727",
+      marginTop: 10,
+      padding: 10,
+      backgroundColor: "white",
+      borderRadius: 20,
+      fontFamily: "sans-serif",
+      textAlign: 'center',
+      fontSize: 22,
+      fontWeight: 'bold',
+      borderColor: "#697727",
+      width: '90%',
+      letterSpacing: 1,
+      borderWidth: 7
   }
+
+
   });
