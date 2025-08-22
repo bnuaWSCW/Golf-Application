@@ -60,6 +60,8 @@ export default function Scorecard() {
   // useState function for the score - makes 18 zero's and puts them in a list.
   const [score, setScore] = useState(Array(18).fill(0));
 
+
+  // 
   const increaseScore = (index: number) => {
     setScore((prevScore) => {
       const newScore = [...prevScore];
