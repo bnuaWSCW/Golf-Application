@@ -221,6 +221,15 @@ export const styles = StyleSheet.create({
       width: '90%',
       letterSpacing: 1,
       borderWidth: 7
+  },
+
+  details: {
+    height: "80%", 
+    position: 'absolute', 
+    zIndex: 0, 
+    top: 65, 
+    marginLeft: 20, 
+    width: '100%'
   }
 
 
