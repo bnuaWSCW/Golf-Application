@@ -12,8 +12,10 @@ export default function Scorecard() {
 // Course variable transferred from index.tsx
 const { course } = useLocalSearchParams();
 
+// Ensures the value of course is either a string or null
 const initialCourse = Array.isArray(course) ? course[0] : course ?? null;
 
+// Holds the selected course name and can change. Value can only be a string or null
 const [courseName, setCourseName] = useState<string | null>(initialCourse);
 
 
@@ -62,18 +64,27 @@ const [courseName, setCourseName] = useState<string | null>(initialCourse);
     )
    }
 
+
+  // Function for loading any saved scores and courses.
   React.useEffect(() => {
     const loadState = async () => {
       const savedScore = await AsyncStorage.getItem('score');
       const savedCourse = await AsyncStorage.getItem('course');
+      // if a saved score exists, load the saved score
       if (savedScore) setScore(JSON.parse(savedScore));
+      // if a saved course exists, load the saved course
       if (savedCourse) setCourseName(savedCourse);
     };
+
+    // Load the function
     loadState();
   }, []);
 
+  // Function for saving the course and the score
   React.useEffect(() => {
+    // Stores and sets a score in the AsyncStorage
     AsyncStorage.setItem('score', JSON.stringify(score));
+    // Stores and sets the course in the AsyncStorage. Sets course as "" if there is nothing.
     AsyncStorage.setItem('course', courseName ?? "");
   }, [score, courseName]);
 

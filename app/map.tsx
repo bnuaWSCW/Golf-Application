@@ -104,11 +104,6 @@ export default function Map() {
           <Text style={styles.scoreText }>Resume</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={() => router.push('/map')}
-            style={{padding:10}}>
-            <Text style={styles.scoreText}>Map</Text>
-          </TouchableOpacity>
-
           <TouchableOpacity onPress={() => router.push('/statistics')}
             style={{padding:10}}>
             <Text style={styles.scoreText}>Statistics</Text>
