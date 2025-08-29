@@ -1,4 +1,4 @@
-// importing modules to use in the code/app
+// Importing Related Assets/Modules
 import { router } from "expo-router";
 import React from "react";
 import { Image, ImageBackground, Text, TouchableOpacity, View } from "react-native";
@@ -92,17 +92,17 @@ export default function Index() {
         <View style={styles.middleTexts}>
 
           {/* Enter Course Functionality */}
-
           <SelectList
             setSelected={setSelected}
             data={data}
             onSelect={() => {
+              // Puts selected course as a constant and sends it as a parameter.
               const selectedCourse = data.find(item => item.key === selected)?.value;
+              //  Pushes to the scorecard page.
               router.push({ pathname: '/scorecard', params: { course: selectedCourse } });
             }}
 
             // Styles for the Search Box
-
             boxStyles={styles.inputCourse}
             dropdownStyles={{
               backgroundColor: '#4c4c1c',
@@ -120,7 +120,6 @@ export default function Index() {
             }}
             searchPlaceholder=""
             maxHeight={150}
-            
           />
 
 
@@ -143,7 +142,6 @@ export default function Index() {
             Don't have an account?
            </Text>
           </TouchableOpacity>
-
         </View>
 
 

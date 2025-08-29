@@ -33,15 +33,18 @@ export default function Map() {
       const elevation = response.elevation();
       const utcOffsetSeconds = response.utcOffsetSeconds();
 
+      // Sends a message to the terminal about the coordinates, elevation and timezone
       console.log(
         `\nCoordinates: ${latitude}°N ${longitude}°E`,
         `\nElevation: ${elevation}m asl`,
         `\nTimezone difference to GMT+0: ${utcOffsetSeconds}s`,
       );
 
+
       const hourly = response.hourly()!;
 
       const weatherDataObj = {
+        // 
         hourly: {
           time: [...Array((Number(hourly.timeEnd()) - Number(hourly.time())) / hourly.interval())].map(
             (_, i) => new Date((Number(hourly.time()) + i * hourly.interval() + utcOffsetSeconds) * 1000)
@@ -51,10 +54,10 @@ export default function Map() {
           precipitation_probability: hourly.variables(2)!.valuesArray(),
         },
       };
-
+      // Sets weatherdata usestate constant to the updated weather information
       setWeatherData(weatherDataObj);
     };
-
+    // actually runs the function
     fetchWeather();
   }, []);
 
@@ -79,11 +82,6 @@ export default function Map() {
     return undefined;
   }
 
-
-
-
-  
-
   const { course } = useLocalSearchParams();
 
   const [menuVisible, setmenuVisible] = useState(false);
@@ -92,45 +90,44 @@ export default function Map() {
     setmenuVisible(false);
   };
 
+  // Side Menu Component/Function
    const SideMenu = () => {
     return (
       <View style={styles.sideMenu}>
-
+        {/* Title */}
         <Text style={styles.heading}>Kiwi Golf</Text>
 
+        {/* Resume Button */}
         <TouchableOpacity onPress={() => setmenuVisible(false)}
-          style={{padding:10}}
-          >       
+          style={{padding:10}}>       
           <Text style={styles.scoreText }>Resume</Text>
           </TouchableOpacity>
 
+          {/* Statistics Button */}
           <TouchableOpacity onPress={() => router.push('/statistics')}
             style={{padding:10}}>
             <Text style={styles.scoreText}>Statistics</Text>
           </TouchableOpacity>
         
+          {/* History Button */}
           <TouchableOpacity onPress={() => router.push('/history')}
             style={{padding:10}}>
             <Text style={styles.scoreText}>History</Text>
           </TouchableOpacity> 
 
+          {/* End Round Button */}
           <TouchableOpacity onPress={() => router.push('/')}
             style={{padding:10}}>
             <Text style={styles.endRound}>End Round</Text>
           </TouchableOpacity>
-
-
       </View>
     )
    }
 
-
-
-    
-
-
   return (
+    // TouchableWIthoutFeedback = if you press anywhere on the screen, the side menu hides.
     <TouchableWithoutFeedback onPress={offClick}>
+      {/* Original View Container */}
       <View
         style={{
           flex: 1,

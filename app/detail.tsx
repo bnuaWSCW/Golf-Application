@@ -1,10 +1,9 @@
+// Importing Related Assets/Modules
 import { styles } from "@/assets/styles/styles";
 import { router } from "expo-router";
 import { Menu } from 'lucide-react-native';
 import React, { useState } from 'react';
 import { ImageBackground, ScrollView, Text, TouchableOpacity, TouchableWithoutFeedback, View } from "react-native";
-
-// 
 
 export default function Detail() {
 
@@ -17,7 +16,6 @@ export default function Detail() {
   };
 
   // Side Menu Component/function
-
    const SideMenu = () => {
     return (
       <View style={styles.sideMenu}>
@@ -49,12 +47,7 @@ export default function Detail() {
           </TouchableOpacity>
       </View>
     )
-   }
-
-
-
-    
-
+   };
 
   return (
     // TouchableWIthoutFeedback = if you press anywhere on the screen, the side menu hides.
@@ -73,15 +66,18 @@ export default function Detail() {
 
           <View style={styles.topMenu}>
 
+            {/* Side Menu Button */}
             <TouchableOpacity
               onPress={() => setmenuVisible(true)}
               style={{marginRight: 10}}>
               <Menu color='white' size ={50}/>
             </TouchableOpacity>
+            {/* If menu Visible is true, run Side Menu function */}
               {
                 menuVisible ? <SideMenu /> :null
               }
 
+              {/* Title */}
               <Text style={[styles.scorecardTitle, {position: 'absolute', left: 70, top: 10, zIndex: 1}]}>Details/Purpose</Text>
 
 
@@ -89,8 +85,7 @@ export default function Detail() {
  
               {/* Detail Contents */}
 
-            <ScrollView style={styles.details}>
-                
+            <ScrollView style={styles.details}> 
               <Text style={styles.detailtext}>There are a multitude of factors when playing golf and trying to get the best score you possibly can get. 
                 Wind, weather, slope, choice of club, swing thought, hole placement - they are all things golfers take into account while playing a hole. 
                 Though knowing whether the wind is going left or right is easy, knowing specifics and the strengths of such specifications is frustrating.
@@ -105,9 +100,9 @@ export default function Detail() {
                 My digital outcome informing these users on these factors and hazards are in hopes of these golfers playing to the best of their ability in their golf shot and through whatever lie they have. 
                 These environmental factors, may detriment the golf shot tremendously, and I want to make sure these factors are addressed.
               </Text>
-
             </ScrollView>
 
+            {/* Back button */}
             <View style={styles.bottomNav}>
               <TouchableOpacity onPress={() => router.push({pathname: '/'})} 
               style={{width: '85%'}}>
