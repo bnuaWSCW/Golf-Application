@@ -6,11 +6,17 @@ import React, { useState } from 'react';
 import { ImageBackground, ScrollView, Text, TouchableOpacity, TouchableWithoutFeedback, View, } from "react-native";
 import { Row, Rows, Table } from "react-native-table-component";
 import courseInfo from './Course_Data.json';
+import { saveScore } from "./storage";
 
 export default function Scorecard() {
 
 // Course variable transferred from index.tsx
 const { course } = useLocalSearchParams();
+
+const saveRound = async () => {
+  await saveScore(total);
+  router.push("/");
+}
 
 // Ensures the value of course is either a string or null
 const initialCourse = Array.isArray(course) ? course[0] : course ?? null;
@@ -56,7 +62,7 @@ const [courseName, setCourseName] = useState<string | null>(initialCourse);
           </TouchableOpacity> 
 
         {/* Home Button */}
-          <TouchableOpacity onPress={() => router.push('/')}
+          <TouchableOpacity onPress={saveRound}
             style={{padding:10}}>
             <Text style={styles.endRound}>Home</Text>
           </TouchableOpacity>

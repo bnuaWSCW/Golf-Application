@@ -2,10 +2,24 @@
 import { styles } from "@/assets/styles/styles";
 import { router } from "expo-router";
 import { Menu } from 'lucide-react-native';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ImageBackground, ScrollView, Text, TouchableOpacity, TouchableWithoutFeedback, View } from "react-native";
+import { Rows, Table } from "react-native-table-component";
+import { overallHistory } from "./storage";
 
 export default function Statistics() {
+
+  const [history, setHistory] = useState<{score: Number; date: string }[]>([]);
+
+  useEffect(() => {
+    const fetchHistory = async () => {
+      const data = await overallHistory();
+      setHistory(data);
+    };
+    fetchHistory();
+  }, []);
+
+  const roundsPlayed = history.length
 
   // Side menu useState function. False = hidden. True = exposed.
   const [menuVisible, setmenuVisible] = useState(false);
@@ -49,6 +63,16 @@ export default function Statistics() {
     )
    };
 
+
+   //  Indexing for the table data
+     const tableData = [
+        ["Rounds Played", roundsPlayed],
+        ["Avg Score", ""],
+        ["Range", ""],
+        ["Median Score", ""],
+        ["Lowest Score", ""]
+       ];
+     
   return (
     // TouchableWIthoutFeedback = if you press anywhere on the screen, the side menu hides.
     <TouchableWithoutFeedback onPress={offClick}>
@@ -82,11 +106,23 @@ export default function Statistics() {
 
           </View>
  
-              {/* Detail Contents */}
+              {/* Statistics Contents */}
 
-            <ScrollView style={styles.details}> 
-
+            <View style={styles.details}> 
+            <ScrollView>
+              {/* Table Data with respective styles */}
+              <Table borderStyle={styles.tableBorder}
+              >
+                <Rows data={tableData} 
+                widthArr = {[230, 135]}
+                heightArr={[145, 145, 145, 145]}
+                style={{height: 145, backgroundColor: "white"}}
+                textStyle={styles.rowText}
+                />
+              </Table>
             </ScrollView>
+
+            </View>
 
             {/* Back button */}
             <View style={styles.bottomNav}>
@@ -95,9 +131,11 @@ export default function Statistics() {
                 <Text style={styles.scoreText}>GO BACK</Text>
               </TouchableOpacity>
             </View>
+
           </ImageBackground>
 
       </View>
+
     </TouchableWithoutFeedback>
   );
 }
