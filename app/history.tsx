@@ -2,10 +2,21 @@
 import { styles } from "@/assets/styles/styles";
 import { router } from "expo-router";
 import { Menu } from 'lucide-react-native';
-import React, { useState } from 'react';
-import { ImageBackground, ScrollView, Text, TouchableOpacity, TouchableWithoutFeedback, View } from "react-native";
+import React, { useEffect, useState } from 'react';
+import { FlatList, ImageBackground, Text, TouchableOpacity, TouchableWithoutFeedback, View } from "react-native";
+import { overallHistory } from "./storage";
 
 export default function History() {
+
+  const [history, setHistory] = useState<{ score: number; date: string }[]>([]);
+
+  useEffect(() => {
+    const fetchHistory = async () => {
+      const data = await overallHistory();
+      setHistory(data);
+    };
+    fetchHistory();
+  }, []);
 
   // Side menu useState function. False = hidden. True = exposed.
   const [menuVisible, setmenuVisible] = useState(false);
@@ -78,16 +89,37 @@ export default function History() {
               }
 
               {/* Title */}
-              <Text style={[styles.scorecardTitle, {position: 'absolute', left: 70, top: 10, zIndex: 1}]}>History</Text>
+              <Text style={[styles.scorecardTitle, {position: 'absolute', left: 70, top: 10, zIndex: 1, fontSize: 25}]}>History</Text>
 
 
           </View>
  
               {/* Detail Contents */}
 
-            <ScrollView style={styles.details}> 
+            <View style={styles.history}> 
 
-            </ScrollView>
+              <View style={{flexDirection: 'row', justifyContent: 'space-between', width: '90%'}}>
+                <Text style={styles.historyText}> Score:</Text>
+                <Text style={styles.historyText}> Date:</Text>
+              </View>
+
+              <FlatList
+                data={history}
+                keyExtractor={(_, i) => i.toString()}
+                renderItem={({ item }) => (
+                <View style={{
+                  flexDirection: 'row',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                  width: '90%',
+                  marginVertical: 5
+                  }}>
+                    <Text style={styles.historyText}> Score: {item.score}</Text>
+                    <Text style={styles.historyText}> {new Date(item.date).toLocaleString()}</Text>
+                  </View>
+                )}
+              />
+            </View>
 
             {/* Back button */}
             <View style={styles.bottomNav}>

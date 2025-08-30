@@ -207,7 +207,7 @@ export const styles = StyleSheet.create({
     borderWidth: 10
   },
 
-  detailtext: {
+  detailText: {
       color: "#697727",
       marginTop: 10,
       padding: 10,
@@ -230,7 +230,34 @@ export const styles = StyleSheet.create({
     top: 65, 
     marginLeft: 20, 
     width: '100%'
-  }
+  },
+
+    history: {
+      height: "80%", 
+      position: 'absolute', 
+      zIndex: 0, 
+      top: 65, 
+      width: '100%',
+      justifyContent: 'center',
+      alignItems: 'center'
+  },
+
+    historyText: {
+      color: "#697727",
+      marginTop: 15,
+      padding: 10,
+      backgroundColor: "white",
+      borderRadius: 20,
+      fontFamily: "sans-serif",
+      textAlign: 'center',
+      fontSize: 20,
+      fontWeight: 'bold',
+      borderColor: "#697727",
+      letterSpacing: 1,
+      borderWidth: 5,
+      
+  },
+
 
 
   });

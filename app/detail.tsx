@@ -86,17 +86,17 @@ export default function Detail() {
               {/* Detail Contents */}
 
             <ScrollView style={styles.details}> 
-              <Text style={styles.detailtext}>There are a multitude of factors when playing golf and trying to get the best score you possibly can get. 
+              <Text style={styles.detailText}>There are a multitude of factors when playing golf and trying to get the best score you possibly can get. 
                 Wind, weather, slope, choice of club, swing thought, hole placement - they are all things golfers take into account while playing a hole. 
                 Though knowing whether the wind is going left or right is easy, knowing specifics and the strengths of such specifications is frustrating.
               </Text>
 
-              <Text style={styles.detailtext}>As someone who has played golf for nearly 2 years, I know the consequences of not taking into account different factors when playing golf. 
+              <Text style={styles.detailText}>As someone who has played golf for nearly 2 years, I know the consequences of not taking into account different factors when playing golf. 
                 Golf depends on weather, hole placement, distance, etc. When you forget even one of these factors, it may detriment the shot. 
                 This is why I want to make an app to showcase information on these factors especially for regular intermediate golfers.
               </Text>
 
-              <Text style={styles.detailtext}>My purpose for the creation of this digital outcome is to inform regular intermediate golfers about environmental factors and hazards that may affect their golf shot. 
+              <Text style={styles.detailText}>My purpose for the creation of this digital outcome is to inform regular intermediate golfers about environmental factors and hazards that may affect their golf shot. 
                 My digital outcome informing these users on these factors and hazards are in hopes of these golfers playing to the best of their ability in their golf shot and through whatever lie they have. 
                 These environmental factors, may detriment the golf shot tremendously, and I want to make sure these factors are addressed.
               </Text>
