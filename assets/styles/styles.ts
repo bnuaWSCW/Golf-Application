@@ -1,6 +1,9 @@
+// Importing Related Assets/Modules
 import { StyleSheet } from 'react-native';
 
+// Exporting 'styles' as a StyleSheet
 export const styles = StyleSheet.create({
+  // Title(for specifically the starting page)
     title: {
       fontSize: 75,
       fontFamily: "Roboto",
@@ -46,6 +49,7 @@ export const styles = StyleSheet.create({
     width: '100%',
   },
 
+  // Top Container ( Menu )
   topMenu: {
     flexDirection: 'row',
     width: '100%',
@@ -109,6 +113,7 @@ export const styles = StyleSheet.create({
       marginLeft: -20
   },
 
+  // Style for the Scorecard Title
   scorecardTitle: {
     textAlign: 'center',
     color: 'white',
@@ -121,11 +126,13 @@ export const styles = StyleSheet.create({
 
   // Table Styles
 
+  // Styles for Specifically the table itself
   datatable: {
     height: 70,
     backgroundColor: 'white',
   },
 
+  // Styles for the text of the tables
   rowText: {
     color: "#697727",
     textAlign: "center",
@@ -133,11 +140,13 @@ export const styles = StyleSheet.create({
     fontWeight: "bold"
   },
 
+  // Styles for the table headers
   tableHeader: {
     height: 70,
     backgroundColor: "#697727"
   },
 
+  // Second style for table headers
   headerText: {
     color: "white",
     textAlign: "center",
@@ -145,11 +154,13 @@ export const styles = StyleSheet.create({
     fontWeight: "bold"
   },
 
+  // Style for the borders of the table
   tableBorder: {
     borderColor: "#464a1e",
     borderWidth: 5,
   },
 
+  // Style for the score
   scoreText: {
       color: "#697727",
       padding: 10,
@@ -162,6 +173,7 @@ export const styles = StyleSheet.create({
       borderColor: "#464a1e"
   },
 
+  // Style for the Side Menu(positioning)
   sideMenu: {
     position:'absolute', 
     top: 120, 
@@ -174,6 +186,7 @@ export const styles = StyleSheet.create({
     borderWidth: 5
   },
 
+  // Second Heading Style(For Side Menu)
   heading: {
     color: 'white',
     fontSize: 50,
@@ -183,6 +196,7 @@ export const styles = StyleSheet.create({
     fontWeight: 'bold'
   },
 
+  // Style for End Round Button(Side Menu)
   endRound: {
       color: "white",
       padding: 10,
@@ -195,6 +209,7 @@ export const styles = StyleSheet.create({
       borderWidth: 4
   },
 
+  // Style for the image placeholder(Map)
   imagePlaceholder: {
     resizeMode: 'stretch',
     position: 'absolute',
@@ -207,6 +222,7 @@ export const styles = StyleSheet.create({
     borderWidth: 10
   },
 
+  // Text Style for Details Page
   detailText: {
       color: "#697727",
       marginTop: 10,
@@ -223,6 +239,7 @@ export const styles = StyleSheet.create({
       borderWidth: 7
   },
 
+  // Positioning For Details
   details: {
     height: "80%", 
     position: 'absolute', 
@@ -232,6 +249,7 @@ export const styles = StyleSheet.create({
     width: '100%'
   },
 
+  // Positioning for History
     history: {
       height: "80%", 
       position: 'absolute', 
@@ -242,6 +260,7 @@ export const styles = StyleSheet.create({
       alignItems: 'center'
   },
 
+  // Style for History Text
     historyText: {
       color: "#697727",
       marginTop: 15,
@@ -255,7 +274,5 @@ export const styles = StyleSheet.create({
       borderColor: "#697727",
       letterSpacing: 1,
       borderWidth: 5,
-      
-  },
-
-  });
+  
+  }});

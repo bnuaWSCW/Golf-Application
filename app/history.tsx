@@ -8,13 +8,18 @@ import { overallHistory } from "./storage";
 
 export default function History() {
 
+  // useState array of user history objects - each has a score and date
   const [history, setHistory] = useState<{ score: number; date: string }[]>([]);
 
+  // fetches the user's history when the component is called
   useEffect(() => {
     const fetchHistory = async () => {
+      // calls the dadta from storage.ts
       const data = await overallHistory();
+      // updates history with the data from storage.ts
       setHistory(data);
     };
+    // actually calls the function
     fetchHistory();
   }, []);
 
@@ -94,18 +99,22 @@ export default function History() {
 
           </View>
  
-              {/* Detail Contents */}
+              {/* History Contents */}
 
             <View style={styles.history}> 
-
+              {/* Score and Date titles */}
               <View style={{flexDirection: 'row', justifyContent: 'space-between', width: '90%'}}>
                 <Text style={styles.historyText}> Score:</Text>
                 <Text style={styles.historyText}> Date:</Text>
               </View>
 
+              {/* Renders the array like a scrollview component */}
               <FlatList
+                // the array of history information.
                 data={history}
+                // Ensures each item has a key(index)
                 keyExtractor={(_, i) => i.toString()}
+                // Shows how each item should be displayed
                 renderItem={({ item }) => (
                 <View style={{
                   flexDirection: 'row',
@@ -114,7 +123,9 @@ export default function History() {
                   width: '90%',
                   marginVertical: 5
                   }}>
+                    {/* Score for one game(object) */}
                     <Text style={styles.historyText}> Score: {item.score}</Text>
+                    {/* Date for that same game(object) */}
                     <Text style={styles.historyText}> {new Date(item.date).toLocaleString()}</Text>
                   </View>
                 )}

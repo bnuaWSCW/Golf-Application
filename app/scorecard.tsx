@@ -1,3 +1,4 @@
+// Importing Related Assets/Modules
 import { styles } from "@/assets/styles/styles";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { router, useLocalSearchParams } from "expo-router";
@@ -13,6 +14,7 @@ export default function Scorecard() {
 // Course variable transferred from index.tsx
 const { course } = useLocalSearchParams();
 
+// Saves the total score and pushes back to home - the home button
 const saveRound = async () => {
   await saveScore(total);
   router.push("/");
@@ -99,6 +101,7 @@ const [courseName, setCourseName] = useState<string | null>(initialCourse);
   const increaseScore = (index: number) => {
     setScore((prevScore) => {
       const newScore = [...prevScore];
+      // if the score is over 10, reset to 0. Else add one to the score.
       if (newScore[index] >= 10) {
         newScore[index] = 0;
       } else {
@@ -111,15 +114,20 @@ const [courseName, setCourseName] = useState<string | null>(initialCourse);
 // Finds the golf course name
  const findPar = courseInfo.find(courseInfo => courseInfo.name === course)
 
-//  Indexing for the table data
+//  Indexing for the table data - creates an array with 18 objects.
   const tableData = Array.from({ length: 18}, (_, i) => [
+    // Hole number = i(index which is the value of the array) + 1. Fills in for every 18 objects
     `${1 + i}`, 
+    // Finds the par for the specific hole for the specific course
     findPar?.par[i], 
+    // Responsible for button that runs increaseScore for each 18 buttons.
     <TouchableOpacity 
     onPress={() => increaseScore(i)}
-    key = {`button-${i}`}
-    >
+    key = {`button-${i}`}>
+
+      {/* Shows the score */}
       <Text style={styles.rowText}>{score[i]}</Text>
+
     </TouchableOpacity>
     ]);
   
@@ -150,6 +158,7 @@ const [courseName, setCourseName] = useState<string | null>(initialCourse);
         {/* Image Background for the screen */}
         <ImageBackground source={require('../assets/images/welcome-08Ipbe8GpWw-unsplash.jpg')}
         style={{ flex: 1}}>
+
           {/* The container for the top part of the screen */}
           <View style={styles.topMenu}>
 
@@ -166,6 +175,7 @@ const [courseName, setCourseName] = useState<string | null>(initialCourse);
               {/* Shows selected course from the starting page */}
               <Text style={[styles.scorecardTitle, {position: 'absolute', left: 70, top: 10}]}>{course}</Text>
 
+              {/* Fills all of the 18 objects in the score array to 0 */}
               <TouchableOpacity onPress={() => setScore(Array(18).fill(0))}>
                 <Text style={[styles.scorecardTitle, {position: 'absolute', left: 210}]}>RESET</Text>
               </TouchableOpacity>
@@ -175,22 +185,28 @@ const [courseName, setCourseName] = useState<string | null>(initialCourse);
 
           {/* Second view container for the contents in the middle */}
           <View style={[styles.middleTexts, {height: '80%', position: 'absolute', top: 70, left: 25}]}>
+
             <ScrollView>
               {/* Table Data with respective styles */}
-              <Table borderStyle={styles.tableBorder}
-              >
+              <Table borderStyle={styles.tableBorder}>
+
+                {/* The row for the headings(Hole, Par, Score) */}
               <Row data={tableTitle} 
                 widthArr = {[95, 115, 150]}
                 style={styles.tableHeader}
                 textStyle={styles.headerText}
                 />
+
+                {/* Rows for the contents */}
                 <Rows data={tableData} 
                 widthArr = {[95, 115, 150]}
                 style={styles.datatable}
                 textStyle={styles.rowText}
                 />
+
               </Table>
             </ScrollView>
+
               {/* Table showing total score */}
             <Table borderStyle={styles.tableBorder}>
               <Row data={totalscore}
@@ -199,12 +215,13 @@ const [courseName, setCourseName] = useState<string | null>(initialCourse);
                 widthArr={[210, 150]}
               />
             </Table>
+
           </View>
 
           {/* Bottom view container */}
           <View style={styles.bottomNav}>
 
-          {/* Got to map button */}
+          {/* Go to map button and taking the course name as a parameter */}
             <TouchableOpacity onPress={() => router.push({pathname: '/map', params: { course: course}})} 
             style={{width: '85%'}}>
               <Text style={styles.scoreText}>GO TO MAP</Text>

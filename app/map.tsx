@@ -1,3 +1,4 @@
+// Importing Related Assets/Modules
 import { styles } from "@/assets/styles/styles";
 import { router, useLocalSearchParams } from "expo-router";
 import { Menu } from 'lucide-react-native';
@@ -40,17 +41,24 @@ export default function Map() {
         `\nTimezone difference to GMT+0: ${utcOffsetSeconds}s`,
       );
 
-
+      // Calls for a response hourly from the API
       const hourly = response.hourly()!;
 
       const weatherDataObj = {
-        // 
+        // create an array of Date objects representing each hour
         hourly: {
+          // calculate the number of intervals(endTime - startTime/interval) and generate each timestamp
+          // convert from seconds to milliseconds
           time: [...Array((Number(hourly.timeEnd()) - Number(hourly.time())) / hourly.interval())].map(
             (_, i) => new Date((Number(hourly.time()) + i * hourly.interval() + utcOffsetSeconds) * 1000)
           ),
+          // Extract the array of temperature values for each hour
           temperature_2m: hourly.variables(0)!.valuesArray(),
+
+          // Extract the array of precipitation values for each hour
           precipitation: hourly.variables(1)!.valuesArray(),
+
+          // Extract the array of precipitation probability for each hour
           precipitation_probability: hourly.variables(2)!.valuesArray(),
         },
       };
@@ -61,6 +69,7 @@ export default function Map() {
     fetchWeather();
   }, []);
 
+  // function to get the temperature
   function getFirstTemperature(): number | undefined {
     if (weatherData && weatherData.hourly.temperature_2m.length > 0) {
       return Math.round(weatherData.hourly.temperature_2m[0]);
@@ -68,6 +77,7 @@ export default function Map() {
     return undefined;
   }
 
+  // function to get the precipitation(mm)
   function getPrecipitation(): number | undefined {
     if (weatherData && weatherData.hourly.precipitation.length > 0) {
       return Math.round(weatherData.hourly.precipitation[0]);
@@ -75,15 +85,17 @@ export default function Map() {
     return undefined;
   }
 
-    function getPrecipitationChance(): number | undefined {
+  // Function to get the change for rain
+  function getPrecipitationChance(): number | undefined {
     if (weatherData && weatherData.hourly.precipitation_probability.length > 0) {
       return Math.round(weatherData.hourly.precipitation_probability[0]);
     }
     return undefined;
   }
-
+  // Calls for the chosen course name from the last page
   const { course } = useLocalSearchParams();
 
+  // useState for side menu
   const [menuVisible, setmenuVisible] = useState(false);
 
   const offClick = () => {
@@ -124,6 +136,10 @@ export default function Map() {
     )
    }
 
+  // ---------------------------------------------- \\
+  // ----- Actual Contents Displayed OnScreen ----- \\
+  // ---------------------------------------------- \\
+
   return (
     // TouchableWIthoutFeedback = if you press anywhere on the screen, the side menu hides.
     <TouchableWithoutFeedback onPress={offClick}>
@@ -133,41 +149,51 @@ export default function Map() {
           flex: 1,
           justifyContent: "center",
           flexDirection: 'column',
-        }}
+        }}>
         
-      >
+        {/* Background Image */}
         <ImageBackground source={require('../assets/images/welcome-08Ipbe8GpWw-unsplash.jpg')}
         style={{ flex: 1}}>
 
-
+          {/* Top View Container of the page */}
           <View style={styles.topMenu}>
 
+            {/* Side Menu Button */}
             <TouchableOpacity
               onPress={() => setmenuVisible(true)}
               style={{marginRight: 10}}>
               <Menu color='white' size ={50}/>
             </TouchableOpacity>
+
+            {/* If menuVisible is true, run the side menu component/function */}
               {
                 menuVisible ? <SideMenu /> :null
               }
 
+              {/* Displays chosen course name */}
               <Text style={[styles.scorecardTitle, {position: 'absolute', left: 70, top: 10}]}>{course}</Text>
+
           </View>
 
+          {/* Middle View Container of the page */}
           <View style={[styles.middleTexts, {justifyContent: 'flex-start', marginLeft: -175}]} >
 
+              {/* Chance of rain value - while loading it'll show 'Loading Weather */}
               <Text style={[styles.navText, {position: 'absolute', zIndex: 9}]}>
                   {weatherData ? `Chance of rain: ${getPrecipitationChance()}%`: "Loading Weather..."}
               </Text>
 
+              {/* Temperature value - while loading it'll show 'Loading Weather */}
               <Text style={[styles.navText, {marginLeft: -80,  position: 'absolute', marginTop: 65, zIndex: 9}]}>
                   {weatherData ? `Temp: ${getFirstTemperature()}°C`: "Loading Weather..."}
               </Text>
 
+              {/* Precipitation value - while loading it'll show 'Loading Weather */}
               <Text style={[styles.navText, {marginLeft: -82,  position: 'absolute', marginTop: 120, zIndex: 9}]}>
                   {weatherData ? `Rain: ${getPrecipitation()}mm`: "Loading Weather..."}
               </Text>
 
+              {/* Map placeholder image */}
               <Image 
               style={styles.imagePlaceholder}
               source={require('../assets/images/golf_map_picture.jpg')} />
@@ -176,13 +202,14 @@ export default function Map() {
 
           </View>
 
+          {/* Bottom View Container of the page */}
           <View style={styles.bottomNav}>
+            {/* Go to scorecard button - brings back the chosen course name as a parameter */}
             <TouchableOpacity onPress={() => router.push({pathname: '/scorecard', params: { course: course}})} 
             style={{width: '85%'}}>
               <Text style={styles.scoreText}>GO TO SCORECARD</Text>
             </TouchableOpacity>
           </View>
-
             
         </ImageBackground>
         

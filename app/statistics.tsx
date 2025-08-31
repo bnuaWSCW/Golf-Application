@@ -9,13 +9,18 @@ import { overallHistory } from "./storage";
 
 export default function Statistics() {
 
-  const [history, setHistory] = useState<{score: Number; date: string }[]>([]);
+  // useState array of user history objects - each has a score and date
+  const [history, setHistory] = useState<{ score: number; date: string }[]>([]);
 
+  // fetches the user's history when the component is called
   useEffect(() => {
     const fetchHistory = async () => {
+      // calls the dadta from storage.ts
       const data = await overallHistory();
+      // updates history with the data from storage.ts
       setHistory(data);
     };
+    // actually calls the function
     fetchHistory();
   }, []);
 
@@ -82,7 +87,7 @@ export default function Statistics() {
    };
 
 
-   //  Indexing for the table data
+   //  Table Data Showing Specific Calculations
      const tableData = [
         ["Rounds Played", roundsPlayed],
         ["Avg Score", shortAvgScore],
@@ -101,10 +106,10 @@ export default function Statistics() {
           justifyContent: "center",
           flexDirection: 'column',
         }}>
+
           {/* The image background */}
         <ImageBackground source={require('../assets/images/welcome-08Ipbe8GpWw-unsplash.jpg')}
         style={{ flex: 1}}>
-
 
           <View style={styles.topMenu}>
 

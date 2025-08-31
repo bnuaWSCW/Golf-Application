@@ -59,10 +59,10 @@ export default function SignIn() {
           justifyContent: "center",
           flexDirection: 'column',
         }}>
+
           {/* The image background */}
         <ImageBackground source={require('../assets/images/welcome-08Ipbe8GpWw-unsplash.jpg')}
         style={{ flex: 1}}>
-
 
           <View style={styles.topMenu}>
 
@@ -80,10 +80,9 @@ export default function SignIn() {
               {/* Title */}
               <Text style={[styles.scorecardTitle, {position: 'absolute', left: 70, top: 10, zIndex: 1}]}>Sign In - Work In Progress</Text>
 
-
           </View>
  
-              {/* Contents */}
+              {/* Sign In Contents */}
 
             <ScrollView style={styles.details}> 
               <Text style={styles.detailText}>This page is not yet functional</Text>
@@ -96,10 +95,12 @@ export default function SignIn() {
                 <Text style={styles.scoreText}>GO BACK</Text>
               </TouchableOpacity>
             </View>
+
           </ImageBackground>
 
       </View>
+
     </TouchableWithoutFeedback>
+
   );
 }
-

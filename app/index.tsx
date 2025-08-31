@@ -54,7 +54,6 @@ const data = [
   { key: '44', value: courseInfo[43]?.name },
   { key: '45', value: courseInfo[44]?.name },
   { key: '46', value: courseInfo[45]?.name },
-
 ]
 
 // main screen - starting page
