@@ -19,7 +19,25 @@ export default function Statistics() {
     fetchHistory();
   }, []);
 
+  // Total Rounds Played
   const roundsPlayed = history.length
+
+  // Average Scores
+  const avgScore = history.length > 0 ? history.reduce((sum, item) => sum + Number(item.score), 0) / history.length: 0
+  // Average Score rounded to 2 decimal places
+  const shortAvgScore = avgScore.toFixed(2)
+
+  // All scores
+  const scores = history.map(item => Number(item.score));
+
+  // Lowest Score 
+  const lowestScore = Math.min(...scores);
+
+  // Highest Score(for the range)
+  const highestScore = Math.max(...scores);
+
+  // Range
+  const range = highestScore - lowestScore
 
   // Side menu useState function. False = hidden. True = exposed.
   const [menuVisible, setmenuVisible] = useState(false);
@@ -67,10 +85,10 @@ export default function Statistics() {
    //  Indexing for the table data
      const tableData = [
         ["Rounds Played", roundsPlayed],
-        ["Avg Score", ""],
-        ["Range", ""],
-        ["Median Score", ""],
-        ["Lowest Score", ""]
+        ["Avg Score", shortAvgScore],
+        ["Range", range],
+        ["Highest Score", highestScore],
+        ["Lowest Score", lowestScore]
        ];
      
   return (

@@ -170,7 +170,7 @@ export default function Map() {
 
               <Image 
               style={styles.imagePlaceholder}
-              source={require('../assets/images/hole17.jpg')} />
+              source={require('../assets/images/golf_map_picture.jpg')} />
 
 
 
