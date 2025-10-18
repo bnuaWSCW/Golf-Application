@@ -66,9 +66,9 @@ export default function Statistics() {
           </TouchableOpacity>
 
           {/* Statistics Button */}
-          <TouchableOpacity onPress={() => router.push('/statistics')}
+          <TouchableOpacity onPress={() => router.push('/detail')}
             style={{padding:10}}>
-            <Text style={styles.scoreText}>Statistics</Text>
+            <Text style={styles.scoreText}>Details</Text>
           </TouchableOpacity>
         
         {/* History Button */}
@@ -149,7 +149,7 @@ export default function Statistics() {
 
             {/* Back button */}
             <View style={styles.bottomNav}>
-              <TouchableOpacity onPress={() => router.push({pathname: '/'})} 
+              <TouchableOpacity onPress={() => router.back()} 
               style={{width: '85%'}}>
                 <Text style={styles.scoreText}>GO BACK</Text>
               </TouchableOpacity>

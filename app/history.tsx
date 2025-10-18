@@ -51,9 +51,9 @@ export default function History() {
           </TouchableOpacity>
         
         {/* History Button */}
-          <TouchableOpacity onPress={() => router.push('/history')}
+          <TouchableOpacity onPress={() => router.push('/detail')}
             style={{padding:10}}>
-            <Text style={styles.scoreText}>History</Text>
+            <Text style={styles.scoreText}>Details</Text>
           </TouchableOpacity> 
 
         {/* Home Button */}
@@ -134,7 +134,7 @@ export default function History() {
 
             {/* Back button */}
             <View style={styles.bottomNav}>
-              <TouchableOpacity onPress={() => router.push({pathname: '/'})} 
+              <TouchableOpacity onPress={() => router.back()} 
               style={{width: '85%'}}>
                 <Text style={styles.scoreText}>GO BACK</Text>
               </TouchableOpacity>
